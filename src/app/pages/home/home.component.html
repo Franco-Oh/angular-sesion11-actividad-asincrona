@@ -1,1 +1,43 @@
-<p>home works!</p>
+<div>
+
+    <form [formGroup]="formLogin" (submit)="send()">
+
+        <!-- input nombre -->
+        <div>
+            <label for="nombre">Nombre: </label>
+            <input type="text" id="nombre" formControlName="nombre">
+            <span>(Debe tener como mínimo 10 caracteres)</span>
+        </div>
+        
+        <!-- input email -->
+        <div>
+            <label for="email">Email: </label>
+            <input type="text" id="email" formControlName="email">
+            <span>(El mail no es válido)</span>
+        </div>
+        
+
+        <!-- input texto -->
+        <div>
+            <label for="msg">Mensaje: </label>
+            <textarea name="" id="msg" cols="30" rows="10" formControlName="msg"></textarea>
+            <span>(El mensaje no puede quedar vacío ni tener más de 500 caracteres)</span>
+        </div>
+
+
+        <!-- Button -->
+        <div>
+            <button [disabled]="formLogin.invalid">Confirmar</button>
+        </div>
+    </form>
+    <span>Todos los datos son válidos</span>
+
+    <div>
+        Status - <span>{{formLogin.valid}}</span>
+    </div>
+
+    <div>
+        {{formLogin.value | json}}
+    </div>
+
+</div>
